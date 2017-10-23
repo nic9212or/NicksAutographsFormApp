@@ -32,5 +32,15 @@ namespace NicksAutographsFormApp.Properties {
                 return ((string)(this["AutographCollectionConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NICKSPC;Integrated Security=True")]
+        public string AutoConnectionString {
+            get {
+                return ((string)(this["AutoConnectionString"]));
+            }
+        }
     }
 }

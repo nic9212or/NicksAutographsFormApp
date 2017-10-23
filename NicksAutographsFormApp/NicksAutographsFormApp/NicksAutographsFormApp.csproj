@@ -37,9 +37,20 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,12 +62,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutographCollectionDataSet.Designer.cs">
+    <Compile Include="Classes\AutographItem.cs" />
+    <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AutographCollectionDataSet.xsd</DependentUpon>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Classes\AutographItem.cs" />
+    <Compile Include="Forms\DBForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DBForm.Designer.cs">
+      <DependentUpon>DBForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ConfirmationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,18 +106,33 @@
       <DependentUpon>PicturesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Program.cs" />
+    <Compile Include="NicksAutograph.cs">
+      <DependentUpon>NicksAutosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NicksAutosModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NicksAutosModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NicksAutosModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NicksAutosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NicksAutosModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NicksAutosModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\DBForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\DBForm.Designer.cs">
-      <DependentUpon>DBForm.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomShowDB.resx">
       <DependentUpon>CustomShowDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DBForm.resx">
+      <DependentUpon>DBForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -121,20 +153,27 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\DBForm.resx">
-      <DependentUpon>DBForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="AutographCollectionDataSet.xsc">
-      <DependentUpon>AutographCollectionDataSet.xsd</DependentUpon>
+    <EntityDeploy Include="NicksAutosModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NicksAutosModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="AutographCollectionDataSet.xsd">
+    <None Include="DataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AutographCollectionDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="AutographCollectionDataSet.xss">
-      <DependentUpon>AutographCollectionDataSet.xsd</DependentUpon>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="NicksAutosModel.edmx.diagram">
+      <DependentUpon>NicksAutosModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\AutographCollectionEntities.datasource" />
+    <None Include="Properties\DataSources\NicksAutograph.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -155,6 +194,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\portmanAutograph1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NicksAutosModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NicksAutosModel.edmx</DependentUpon>
+      <LastGenOutput>NicksAutosModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="NicksAutosModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NicksAutosModel.edmx</DependentUpon>
+      <LastGenOutput>NicksAutosModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

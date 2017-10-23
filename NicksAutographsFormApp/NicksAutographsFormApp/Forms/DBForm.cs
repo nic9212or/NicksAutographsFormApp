@@ -10,42 +10,34 @@ using System.Windows.Forms;
 
 namespace NicksAutographsFormApp
 {
+    //https://www.youtube.com/watch?time_continue=801&v=w5vZiemB06c
     public partial class DBForm : Form
     {
+        AutographCollectionEntities db = new AutographCollectionEntities();
+
         public DBForm()
         {
             InitializeComponent();
         }
 
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            dataGridViewFilterBy.DataSource = db.NicksAutographs.ToList();
+        }
+
         private void DBForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'autographCollectionDataSet.NicksAutographs' table. You can move, or remove it, as needed.
-            this.nicksAutographsTableAdapter.Fill(this.autographCollectionDataSet.NicksAutographs);
-       
-
+            comboBoxCategory.DataSource = db.NicksAutographs.ToList();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            dataGridViewFilterBy.DataSource = db.NicksAutographs.Where(x => x.AutographID == comboBoxCategory.SelectedIndex).ToList();
         }
 
-        private void btnShowPics_Click(object sender, EventArgs e)
+        private void textBoxItem_TextChanged(object sender, EventArgs e)
         {
-            PicturesForm pform = new PicturesForm();
-            pform.Show();
-        }
-
-        private void btnCustDisp_Click(object sender, EventArgs e)
-        {
-            CustomShowDB csdb = new CustomShowDB();
-            csdb.Show();
-        }
-
-        private void Home_Click(object sender, EventArgs e)
-        {
-            HomeForm hf = new HomeForm();
-            hf.Show();
+            dataGridViewFilterBy.DataSource = db.NicksAutographs.Where(x => x.Item.Contains(textBoxItem.Text)).ToList();
         }
     }
 }
