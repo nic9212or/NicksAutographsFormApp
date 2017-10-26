@@ -16,7 +16,7 @@ namespace NicksAutographsFormApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeForm());//tell which form to use first
+            Application.Run(new DBForm());//tell which form to use first
             //https://stackoverflow.com/questions/37671200/visual-studio-2015-with-c-sharp-set-class-as-startup-object
         }
     }

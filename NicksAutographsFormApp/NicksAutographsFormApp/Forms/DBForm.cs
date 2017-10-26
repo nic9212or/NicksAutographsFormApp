@@ -39,5 +39,46 @@ namespace NicksAutographsFormApp
         {
             dataGridViewFilterBy.DataSource = db.NicksAutographs.Where(x => x.Item.Contains(textBoxItem.Text)).ToList();
         }
+
+              
+
+        private void textBoxMin_TextChanged(object sender, EventArgs e)
+        {
+            double outMin;
+            double outMax;
+            Boolean canCvtMin;
+            canCvtMin = double.TryParse(textBoxMinAuto.Text, out outMin);
+            //canCvtAuto = double.TryParse(txtBoxAutoCost.Text, out outAuto);
+            if (canCvtMin)
+            {
+               
+            }
+
+
+            //dataGridViewFilterBy.DataSource = db.NicksAutographs.Where(x => x.AutographCost.Value.CompareTo(outMin)).ToList();
+            // dataGridViewFilterBy.DataSource = db.NicksAutographs.Where(x => x.AutographCost.Value.CompareTo(0.0000)).ToList();cant
+            dataGridViewFilterBy.DataSource = db.NicksAutographs.Where(x => (x.AutographCost.Value <  (decimal)outMin)).ToList();
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxAutoPrNtSt_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridViewFilterBy.DataSource = db.NicksAutographs.Where(x => x.AutographCost.Value.Equals(0.0000)).ToList();
+
+        }
+
+        private void textBoxMaxAuto_TextChanged(object sender, EventArgs e)
+        {
+         
+            double outMax;
+            Boolean canCvtMin;
+            canCvtMin = double.TryParse(textBoxMinAuto.Text, out outMax);
+            dataGridViewFilterBy.DataSource = db.NicksAutographs.Where(x => (x.AutographCost.Value < (decimal)outMax)).ToList();
+        }
     }
 }

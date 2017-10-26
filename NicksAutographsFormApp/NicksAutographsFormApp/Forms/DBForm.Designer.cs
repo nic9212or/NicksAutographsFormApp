@@ -35,13 +35,6 @@
             this.lblCat = new System.Windows.Forms.Label();
             this.lblItem = new System.Windows.Forms.Label();
             this.dataGridViewFilterBy = new System.Windows.Forms.DataGridView();
-            this.nicksAutographBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnShow = new System.Windows.Forms.Button();
-            this.autographCollectionEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.autographCollectionEntitiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet1 = new NicksAutographsFormApp.DataSet1();
-            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.celebrityNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +45,19 @@
             this.obtainedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureLinkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateRecorededDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nicksAutographBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnShow = new System.Windows.Forms.Button();
+            this.autographCollectionEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.autographCollectionEntitiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new NicksAutographsFormApp.DataSet1();
+            this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
+            this.textBoxMinAuto = new System.Windows.Forms.TextBox();
+            this.textBoxMaxAuto = new System.Windows.Forms.TextBox();
+            this.lblCost = new System.Windows.Forms.Label();
+            this.lblMinPrice = new System.Windows.Forms.Label();
+            this.lblMaxPrice = new System.Windows.Forms.Label();
+            this.checkBoxAutoPrNtSt = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilterBy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nicksAutographBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.autographCollectionEntitiesBindingSource)).BeginInit();
@@ -124,52 +130,6 @@
             this.dataGridViewFilterBy.Size = new System.Drawing.Size(1044, 326);
             this.dataGridViewFilterBy.TabIndex = 6;
             // 
-            // nicksAutographBindingSource
-            // 
-            this.nicksAutographBindingSource.DataSource = typeof(NicksAutographsFormApp.NicksAutograph);
-            // 
-            // btnShow
-            // 
-            this.btnShow.Location = new System.Drawing.Point(364, 472);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(75, 23);
-            this.btnShow.TabIndex = 7;
-            this.btnShow.Text = "Show";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
-            // 
-            // autographCollectionEntitiesBindingSource
-            // 
-            this.autographCollectionEntitiesBindingSource.DataSource = typeof(NicksAutographsFormApp.AutographCollectionEntities);
-            // 
-            // autographCollectionEntitiesBindingSource1
-            // 
-            this.autographCollectionEntitiesBindingSource1.DataSource = typeof(NicksAutographsFormApp.AutographCollectionEntities);
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataSet1BindingSource
-            // 
-            this.dataSet1BindingSource.DataSource = this.dataSet1;
-            this.dataSet1BindingSource.Position = 0;
-            // 
-            // comboBoxCategory
-            // 
-            this.comboBoxCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nicksAutographBindingSource, "AutographID", true));
-            this.comboBoxCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.nicksAutographBindingSource, "Category", true));
-            this.comboBoxCategory.DataSource = this.nicksAutographBindingSource;
-            this.comboBoxCategory.DisplayMember = "Category";
-            this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Location = new System.Drawing.Point(62, 92);
-            this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCategory.TabIndex = 8;
-            this.comboBoxCategory.ValueMember = "AutographID";
-            this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
-            // 
             // celebrityNameDataGridViewTextBoxColumn
             // 
             this.celebrityNameDataGridViewTextBoxColumn.DataPropertyName = "CelebrityName";
@@ -230,11 +190,117 @@
             this.dateRecorededDataGridViewTextBoxColumn.HeaderText = "DateRecoreded";
             this.dateRecorededDataGridViewTextBoxColumn.Name = "dateRecorededDataGridViewTextBoxColumn";
             // 
+            // nicksAutographBindingSource
+            // 
+            this.nicksAutographBindingSource.DataSource = typeof(NicksAutographsFormApp.NicksAutograph);
+            // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(364, 472);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(75, 23);
+            this.btnShow.TabIndex = 7;
+            this.btnShow.Text = "Show";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
+            // autographCollectionEntitiesBindingSource
+            // 
+            this.autographCollectionEntitiesBindingSource.DataSource = typeof(NicksAutographsFormApp.AutographCollectionEntities);
+            // 
+            // autographCollectionEntitiesBindingSource1
+            // 
+            this.autographCollectionEntitiesBindingSource1.DataSource = typeof(NicksAutographsFormApp.AutographCollectionEntities);
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataSet1BindingSource
+            // 
+            this.dataSet1BindingSource.DataSource = this.dataSet1;
+            this.dataSet1BindingSource.Position = 0;
+            // 
+            // comboBoxCategory
+            // 
+            this.comboBoxCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.nicksAutographBindingSource, "AutographID", true));
+            this.comboBoxCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.nicksAutographBindingSource, "Category", true));
+            this.comboBoxCategory.DataSource = this.nicksAutographBindingSource;
+            this.comboBoxCategory.DisplayMember = "Category";
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Location = new System.Drawing.Point(62, 92);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCategory.TabIndex = 8;
+            this.comboBoxCategory.ValueMember = "AutographID";
+            this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
+            // 
+            // textBoxMinAuto
+            // 
+            this.textBoxMinAuto.Location = new System.Drawing.Point(542, 92);
+            this.textBoxMinAuto.Name = "textBoxMinAuto";
+            this.textBoxMinAuto.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMinAuto.TabIndex = 9;
+            this.textBoxMinAuto.TextChanged += new System.EventHandler(this.textBoxMin_TextChanged);
+            // 
+            // textBoxMaxAuto
+            // 
+            this.textBoxMaxAuto.Location = new System.Drawing.Point(692, 92);
+            this.textBoxMaxAuto.Name = "textBoxMaxAuto";
+            this.textBoxMaxAuto.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMaxAuto.TabIndex = 10;
+            this.textBoxMaxAuto.TextChanged += new System.EventHandler(this.textBoxMaxAuto_TextChanged);
+            // 
+            // lblCost
+            // 
+            this.lblCost.AutoSize = true;
+            this.lblCost.Location = new System.Drawing.Point(621, 48);
+            this.lblCost.Name = "lblCost";
+            this.lblCost.Size = new System.Drawing.Size(31, 13);
+            this.lblCost.TabIndex = 11;
+            this.lblCost.Text = "Cost:";
+            // 
+            // lblMinPrice
+            // 
+            this.lblMinPrice.AutoSize = true;
+            this.lblMinPrice.Location = new System.Drawing.Point(542, 73);
+            this.lblMinPrice.Name = "lblMinPrice";
+            this.lblMinPrice.Size = new System.Drawing.Size(27, 13);
+            this.lblMinPrice.TabIndex = 12;
+            this.lblMinPrice.Text = "Min:";
+            // 
+            // lblMaxPrice
+            // 
+            this.lblMaxPrice.AutoSize = true;
+            this.lblMaxPrice.Location = new System.Drawing.Point(692, 73);
+            this.lblMaxPrice.Name = "lblMaxPrice";
+            this.lblMaxPrice.Size = new System.Drawing.Size(30, 13);
+            this.lblMaxPrice.TabIndex = 13;
+            this.lblMaxPrice.Text = "Max:";
+            // 
+            // checkBoxAutoPrNtSt
+            // 
+            this.checkBoxAutoPrNtSt.AutoSize = true;
+            this.checkBoxAutoPrNtSt.Location = new System.Drawing.Point(506, 476);
+            this.checkBoxAutoPrNtSt.Name = "checkBoxAutoPrNtSt";
+            this.checkBoxAutoPrNtSt.Size = new System.Drawing.Size(167, 17);
+            this.checkBoxAutoPrNtSt.TabIndex = 14;
+            this.checkBoxAutoPrNtSt.Text = "Show not set Autograph Price";
+            this.checkBoxAutoPrNtSt.UseVisualStyleBackColor = true;
+            this.checkBoxAutoPrNtSt.CheckedChanged += new System.EventHandler(this.checkBoxAutoPrNtSt_CheckedChanged);
+            // 
             // DBForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 538);
+            this.Controls.Add(this.checkBoxAutoPrNtSt);
+            this.Controls.Add(this.lblMaxPrice);
+            this.Controls.Add(this.lblMinPrice);
+            this.Controls.Add(this.lblCost);
+            this.Controls.Add(this.textBoxMaxAuto);
+            this.Controls.Add(this.textBoxMinAuto);
             this.Controls.Add(this.comboBoxCategory);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dataGridViewFilterBy);
@@ -282,5 +348,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn obtainedByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pictureLinkDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateRecorededDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox textBoxMinAuto;
+        private System.Windows.Forms.TextBox textBoxMaxAuto;
+        private System.Windows.Forms.Label lblCost;
+        private System.Windows.Forms.Label lblMinPrice;
+        private System.Windows.Forms.Label lblMaxPrice;
+        private System.Windows.Forms.CheckBox checkBoxAutoPrNtSt;
     }
 }
