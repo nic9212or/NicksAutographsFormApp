@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace NicksAutographsFormApp
 {
     public partial class DBForm : Form
-    {
+    {//Nichlas ADDED this
         public DBForm()
         {
             InitializeComponent();
