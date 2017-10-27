@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NicksAutographsFormApp
-{
+{//nick was here
     class AutographItem
     {
       //Instance variables. You refernce with THIS. Values change with different customer objects. 
