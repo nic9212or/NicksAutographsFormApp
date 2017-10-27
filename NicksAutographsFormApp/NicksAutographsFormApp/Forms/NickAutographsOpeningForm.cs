@@ -115,27 +115,6 @@ namespace NicksAutographsFormApp
         }
         private void writeToDB(AutographItem theItem)
         {
-            ////write to DB                 
-            //SqlConnection conn = new SqlConnection();
-
-            //conn.ConnectionString = "Data Source=NICKSPC; Initial Catalog=AutographCollection; User ID=sa; Password=10QAZplm";
-            //// using the code here...
-            //conn.Open();
-
-            //String query = "INSERT INTO dbo.NicksAutographs (CelebrityName, Item, Category, Description, DateAquired, AutographCost, ItemCost) VALUES (@cName,@item,@cat, @desc, @dateAq, @autoCost, @itemCost)";
-            //SqlCommand command = new SqlCommand(query, conn);
-            //command.Parameters.AddWithValue("@cName", celbName.ToString());
-            //command.Parameters.AddWithValue("@item", selectedItem.ToString());
-            //command.Parameters.AddWithValue("@cat", selectedCat.ToString());
-            //command.Parameters.AddWithValue("@desc", descrip.ToString());
-            //command.Parameters.AddWithValue("@dateAq", dateAquired.ToString());
-            //command.Parameters.AddWithValue("@autoCost", autoCost.ToString());
-            //command.Parameters.AddWithValue("@itemCost", itemCost.ToString());
-            ////run query      
-            //command.ExecuteNonQuery();
-            //conn.Close();
-            //////////////////////////////////////////////////////////////// MADE CLASS TO AVOID THIS
-            //DBConnection.recordToDb(celbName,  selectedItem,  selectedCat,  descrip,  dateAquired.ToString(),  autoCost.ToString(),  itemCost.ToString(), autoObtnBy, picLink); 
             DBConnection.recordToDb(theItem);
         }
         private void loadDropDowns()
@@ -240,13 +219,11 @@ namespace NicksAutographsFormApp
             CustomShowDB myCustDB = new CustomShowDB();
             myCustDB.Show();
         }
-
   
         private void btnPictures_Click(object sender, EventArgs e)
         {
             PicturesForm pf = new PicturesForm();
             pf.Show();
-
         }
     }
 }
